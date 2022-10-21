@@ -24,3 +24,9 @@ export PATH=$PATH:$KAFKA_HOME/bin
 ``` sh
 source .bash_profile
 ```
+
+```sh
+bin/zookepper-server-start.sh config/zookepper.properties
+bin/kafka-server-start.sh config/server.properties
+```
+
