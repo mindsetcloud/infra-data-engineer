@@ -36,6 +36,6 @@ bin/kafka-server-start.sh config/server.properties
 ### create topic
 
 ``` sh
-bin/kafka-topics.sh --create --topic topic1 --zookepper localhost:2181 --replication-factor 1 --partitions 1
+bin/kafka-topics.sh --create --topic topic1 --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1
 
 ```
