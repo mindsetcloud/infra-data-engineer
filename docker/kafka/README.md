@@ -1,8 +1,13 @@
 ## kafka
 
+
+```  sh
+sudo apt update
+sudo apt install default-jre
+```
+
 ``` sh
 wget https://downloads.apache.org/kafka/3.3.1/kafka_2.13-3.3.1.tgz
-
 ```
 
 ``` sh
@@ -15,6 +20,7 @@ vim .bash_profile
 export KAFKA_HOME=/opt/kafka
 export PATH=$PATH:$KAFKA_HOME/bin
 ```
+
 ``` sh
 source .bash_profile
 ```
