@@ -8,6 +8,8 @@ sudo apt-get install \
     ca-certificates \
     curl \
     gnupg \
+    software-properties-common \
+    apt-transport-https \
     lsb-release
     
 ```
@@ -28,11 +30,13 @@ echo \
 ```
 
 ``` sh
+sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/ubuntu focal stable"
 sudo apt-get update
     
 ```
 
 ``` sh
+apt-cache policy docker-ce
 sudo chmod a+r /etc/apt/keyrings/docker.gpg
 sudo apt-get update
     
@@ -41,5 +45,9 @@ sudo apt-get update
 ``` sh
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
     
+```
+
+``` sh
+sudo usermod -aG docker ${USER}
 ```
 
