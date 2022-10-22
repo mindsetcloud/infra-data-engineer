@@ -40,7 +40,7 @@ bin/kafka-topics.sh --create --topic topic1 --bootstrap-server localhost:9092 --
 
 ### producer
 ``` sh
-bin/kafka-console-producer.sh --broker-list --bootstrap-server localhost:9092 --topic topic1
+bin/kafka-console-producer.sh --topic topic1 --bootstrap-server localhost:9092
 
 ```
 
