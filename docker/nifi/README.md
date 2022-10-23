@@ -3,7 +3,7 @@
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://nodesource.com/products/nsolid)
 
-### install on ubuntu:
+### install on ubuntu image:
 [ _shell_ ](https://github.com/mindsetcloud/infra-data-engineer/blob/main/docker/kafka/install.sh) - shell
 
 ### install within docker compose:
