@@ -1,7 +1,7 @@
 # KAFKA
 ## _Kafka broker and zookeeper_
 
-[![N|Solid](https://raw.githubusercontent.com/mindsetcloud-IT/StoreOfBuild/main/frontend/static/img/logo/mindsetcloud-logo.png?token=GHSAT0AAAAAABZ5OIPPRK3HGNEGLUHHTK4WY2VHELA)](https://mindsetcloud.net)
+[![N|Solid](https://raw.githubusercontent.com/mindsetcloud-IT/StoreOfBuild/main/frontend/static/img/logo/mindsetcloud-logo.png?token=GHSAT0AAAAAABZ5OIPOYCPJ6MH4N53OPTDSY2VHQGQ)](https://mindsetcloud.net)
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://nodesource.com/products/nsolid)
 
