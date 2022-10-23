@@ -3,7 +3,7 @@
 
 [![N|Solid](https://raw.githubusercontent.com/mindsetcloud-IT/StoreOfBuild/main/frontend/static/img/logo/mindsetcloud-logo.png?token=GHSAT0AAAAAABZ5OIPPRK3HGNEGLUHHTK4WY2VHELA)](https://mindsetcloud.net)
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://nodesource.com/products/nsolid)
 
 ### _install on ubuntu:_
 [ shell ](https://github.com/mindsetcloud/infra-data-engineer/blob/main/docker/kafka/install.sh) - shell
