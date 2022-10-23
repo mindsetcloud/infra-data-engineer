@@ -13,3 +13,34 @@
 
 ### _install within dockerfile:_
 [ dockerfile ](https://github.com/mindsetcloud/infra-data-engineer/blob/main/docker/kafka/Dockerfile) - dockerfile
+
+## kafka single cluster
+
+### init zookeeper
+
+```sh
+bin/zookeeper-server-start.sh config/zookeeper.properties
+```
+### init kafka
+
+```sh
+bin/kafka-server-start.sh config/server.properties
+```
+### create topic
+
+```sh
+bin/kafka-topics.sh --create --topic topic1 --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1
+```
+### producer
+
+```sh
+bin/kafka-console-producer.sh --topic topic1 --bootstrap-server localhost:9092
+```
+### consumer
+
+```sh
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic topic1 --from-beginning
+```
+
+## kafka multi cluster
+
