@@ -6,7 +6,10 @@
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
 ### _install on ubuntu:_
-[Install kafka](https://github.com/mindsetcloud/infra-data-engineer/blob/main/docker/kafka/install.sh) - shell
+[ shell ](https://github.com/mindsetcloud/infra-data-engineer/blob/main/docker/kafka/install.sh) - shell
 
 ### _install within docker compose:_
-[Install kafka](https://github.com/mindsetcloud/infra-data-engineer/blob/main/docker/kafka/install.sh) - docker-compose
+[ docker-compose ](https://github.com/mindsetcloud/infra-data-engineer/blob/main/docker/kafka/kafka.yml) - docker-compose
+
+### _install within dockerfile:_
+[ dockerfile ](https://github.com/mindsetcloud/infra-data-engineer/blob/main/docker/kafka/Dockerfile) - dockerfile
