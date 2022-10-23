@@ -66,3 +66,6 @@ bin/kafka-topics.sh --create --topic topic1 --bootstrap-server localhost:9092 --
 bin/kafka-console-producer.sh --topic topic1 --bootstrap-server localhost:9092
 ```
 
+### references:
+[ _documentation_ ](https://developer.confluent.io/quickstart/kafka-docker/) - kafka
+
