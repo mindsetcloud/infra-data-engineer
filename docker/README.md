@@ -1,4 +1,7 @@
-## install docker
+# DOCKER
+## _install docker on ubuntu_
+
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://nodesource.com/products/nsolid)
 
 ``` sh
 
