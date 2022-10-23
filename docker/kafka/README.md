@@ -1,4 +1,4 @@
-[![N|Solid](https://raw.githubusercontent.com/mindsetcloud-IT/StoreOfBuild/main/frontend/static/img/logo/mindsetcloud-logo.png?token=GHSAT0AAAAAABZ5OIPOYCPJ6MH4N53OPTDSY2VHQGQ)](https://mindsetcloud.net)
+[![N|Solid](https://raw.githubusercontent.com/mindsetcloud/infra-data-engineer/main/static/img/mindsetcloud.png)](https://mindsetcloud.net)
 
 # KAFKA
 ## _Kafka broker and zookeeper_
