@@ -17,6 +17,8 @@
 ### init zookeeper
 ```sh
 bin/zookeeper-server-start.sh config/zookeeper.properties
+#run on background
+nohup bin/zookeeper-server-start.sh config/zookeeper.properties >zookeeper.log &
 ```
 
 ### init kafka
