@@ -1,21 +1,3 @@
-Wasm is a fast, light alternative to Linux containers – try it out today with the Docker+Wasm Beta.✕
-hub
-Search Docker Hub
-Explore
-Pricing
-Explore
-apache/airflow
-
-apache/airflow
-SPONSORED OSS
-By The Apache Software Foundation • Updated 22 days ago
-Apache Airflow 
-Image
-Pulls
-100M+
-Overview
-Tags
-Dockerfile
 # Licensed to the Apache Software Foundation (ASF) under one or more
 # contributor license agreements.  See the NOTICE file distributed with
 # this work for additional information regarding copyright ownership.
