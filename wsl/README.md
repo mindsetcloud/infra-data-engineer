@@ -1,13 +1,12 @@
 ### Adicione as seguintes linhas no seu arquivo /etc/sudoers ou  visudo:
 ```sh
-%sudo ALL=NOPASSWD: /etc/init.d/mysql
-%sudo ALL=NOPASSWD: /etc/init.d/nginx
-%sudo ALL=NOPASSWD: /etc/init.d/php7.2-fpm
+%sudo ALL=(ALL) NOPASSWD: /etc/init.d/service start ssh
+%sudo ALL=(ALL) NOPASSWD: /etc/init.d/service start docker
+
 ```
-### E no seu arquivo do ~/.bashrc inclua o seguinte:
+### No seu arquivo do ~/.bashrc inclua o seguinte:
 
 ```sh
-sudo /etc/init.d/nginx start
-sudo /etc/init.d/mysql start
-sudo /etc/init.d/php7.2-fpm start
+sudo service start ssh
+sudo service start docker
 ```
