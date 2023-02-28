@@ -7,6 +7,6 @@
 ### No seu arquivo do ~/.bashrc inclua o seguinte:
 
 ```sh
-sudo service start ssh
-sudo service start docker
+sudo service ssh start
+sudo service docker start
 ```
