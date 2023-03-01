@@ -20,3 +20,4 @@ sudo ip link add msc-macvlan link eth0 type macvlan mode bridge
 sudo ip addr add 172.27.142.1/24 dev msc-macvlan
 sudo ifconfig msc-macvlan up
 ```
+reference: https://dockerlabs.collabnix.com/beginners/macvlan-010.html
