@@ -1,0 +1,3 @@
+docker pull metabase/metabase:latest
+
+docker run --name=metabase --hostname=metabase --restart=always -p 3000:3000 -d metabase/metabase
