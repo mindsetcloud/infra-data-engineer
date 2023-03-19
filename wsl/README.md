@@ -1,7 +1,7 @@
 ### Adicione as seguintes linhas no seu arquivo /etc/sudoers ou  visudo:
 ```sh
-%sudo ALL=(ALL) NOPASSWD: /etc/init.d/service ssh start
-%sudo ALL=(ALL) NOPASSWD: /etc/init.d/service docker start
+username ALL=NOPASSWD: /usr/sbin/service ssh start
+username ALL=NOPASSWD: /usr/sbin/service docker start
 
 ```
 ### No seu arquivo do ~/.bashrc inclua o seguinte:
