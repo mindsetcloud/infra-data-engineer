@@ -57,9 +57,9 @@ export PATH=$PATH:$HADOOP_HOME/sbin
 source .bashrc
 
 #edit in /opt/hadoop
-wget core-site.xml
+wget https://raw.githubusercontent.com/mindsetcloud/infra-data-engineer/main/docker/hadoop/core-site.xml
 cat core-site.xml > /opt/hadoop/etc/hadoop/core-site.xml
-wget hadoop-env.sh
+wget https://raw.githubusercontent.com/mindsetcloud/infra-data-engineer/main/docker/hadoop/hadoop-env.sh
 cat hadoop-env.sh > /opt/hadoop/etc/hadoop/hadoop-env.sh
 echo "datanode-01" > /opt/hadoop/etc/hadoop/workers
 echo "datanode-02" >> /opt/hadoop/etc/hadoop/workers
