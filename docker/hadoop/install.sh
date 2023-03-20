@@ -20,9 +20,9 @@ tar -xvf hadoop-3.3.4-src.tar.gz
 mv hadoop-3.3.4-src /opt/hadoop
 rm -rf hadoop-3.3.4.tar.gz
 #add routes on /etc/hosts
-echo "192.168.35.27   hdpmaster" >> /etc/hosts
-echo "192.168.35.28   datanode-01" >> /etc/hosts
-echo "192.168.35.29   datanode-02" >> /etc/hosts
+echo "192.168.32.27   hdpmaster" >> /etc/hosts
+echo "192.168.32.28   datanode-01" >> /etc/hosts
+echo "192.168.32.29   datanode-02" >> /etc/hosts
 #create a default user and add sudo group
 adduser hdfsuser
 usermod -aG sudo hdfsuser
