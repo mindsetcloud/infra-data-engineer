@@ -76,8 +76,8 @@ docker commit hdpmaster msc/datanode
 
 #create container
 docker run -it -d --net postgres_default --ip 192.168.35.27 --name hdpmaster --hostname hdpmaster --user hdfsuser --restart=always -p 9870:9870 -p 50030:50030 -p 8020:8020  msc/namenode
-docker run -it -d --net postgres_default --ip 192.168.35.28 --name datanode-01 --hostname datanode-01 --user hdfsuser --restart=always msc/datanode
-docker run -it -d --net postgres_default --ip 192.168.35.29 --name datanode-02 --hostname datanode-02 --user hdfsuser --restart=always msc/datanode
+docker run -it -d --net postgres_default --ip 192.168.35.28 --name datanode-01 --hostname datanode-01 --user hdfsuser --restart=always -p 9864:9864 msc/datanode
+docker run -it -d --net postgres_default --ip 192.168.35.29 --name datanode-02 --hostname datanode-02 --user hdfsuser --restart=always -p 9864:9864 msc/datanode
 
 #init namenode
 # format only first execution
