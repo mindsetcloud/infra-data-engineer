@@ -10,23 +10,28 @@ apt upgrade
 #installing tools
 apt install vim wget sudo iputils-ping python3 rsync arp-scan net-tools
 ln -s /usr/bin/python3 /usr/bin/python
-#create a default user and add sudo group
-useradd hdfsuser
-passwd hdfsuser
-usermod -aG sudo hdfsuser
-echo "hdfsuser ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
-echo "sudo service ssh start" >> ~/.bashrc
 #install java-8
 apt install openjdk-8-jdk
 #download hadoop hdfs https://hadoop.apache.org/releases.html
+cd /tmp
 wget https://dlcdn.apache.org/hadoop/common/hadoop-3.3.4/hadoop-3.3.4.tar.gz
 #descompacting and move to opt folder
 tar -xvf hadoop-3.3.4-src.tar.gz
 mv hadoop-3.3.4-src /opt/hadoop
-chown -R hdfs:hdfs /opt/hadoop
-#install openssh
+rm -rf hadoop-3.3.4.tar.gz
+#add routes on /etc/hosts
+echo "192.168.35.27   hdpmaster" >> /etc/hosts
+echo "192.168.35.28   datanode-01" >> /etc/hosts
+echo "192.168.35.29   datanode-02" >> /etc/hosts
+#create a default user and add sudo group
+adduser hdfsuser
+usermod -aG sudo hdfsuser
+chown -R hdfsuser:hdfsuser /opt/hadoop
+echo "hdfsuser ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 sudo su - hdfsuser
-apt install openssh-server openssh-clients openssh-libs
+echo "sudo service ssh start > /dev/null" >> ~/.bashrc
+#install openssh
+sudo apt install openssh-server
 ssh-keygen -t rsa -P ""
 cat .ssh/id_rsa.pub > .ssh/authorized_keys
 #copiar authorized_keys para as demais do cluster
@@ -50,25 +55,42 @@ export PATH=$PATH:$HADOOP_HOME/bin
 export PATH=$PATH:$HADOOP_HOME/sbin
 #execute source .bashrc
 source .bashrc
-#add routes on /etc/hosts
-echo "192.168.35.27   hdpmaster" >> /etc/hosts
-echo "192.168.35.28   datanode-01" >> /etc/hosts
-echo "192.168.35.29   datanode-02" >> /etc/hosts
+
 #edit in /opt/hadoop
 wget core-site.xml
 cat core-site.xml > /opt/hadoop/etc/hadoop/core-site.xml
 wget hadoop-env.sh
 cat hadoop-env.sh > /opt/hadoop/etc/hadoop/hadoop-env.sh
-wget hdfs-site.xml
-cat hdfs-site.xml > /opt/hadoop/etc/hadoop/hdfs-site.xml
 echo "datanode-01" > /opt/hadoop/etc/hadoop/workers
 echo "datanode-02" >> /opt/hadoop/etc/hadoop/workers
-#commit container to datanode
+#add file to namenode
+wget namenode.xml
+cat namenode.xml > /opt/hadoop/etc/hadoop/hdfs-site.xml
+#commit namenode
+docker commit hdpmaster msc/namenode
+#add file to datanode
+wget datanode.xml
+cat datanode.xml > /opt/hadoop/etc/hadoop/hdfs-site.xml
+#commit datanode
 docker commit hdpmaster msc/datanode
+
+#create container
+docker run -it -d --net postgres_default --ip 192.168.35.27 --name hdpmaster --hostname hdpmaster --user hdfsuser --restart=always -p 9870:9870 -p 50030:50030 -p 8020:8020  msc/namenode
 docker run -it -d --net postgres_default --ip 192.168.35.28 --name datanode-01 --hostname datanode-01 --user hdfsuser --restart=always msc/datanode
 docker run -it -d --net postgres_default --ip 192.168.35.29 --name datanode-02 --hostname datanode-02 --user hdfsuser --restart=always msc/datanode
-docker commit hdpmaster msc/namenode
-docker run -it -d --net postgres_default --ip 192.168.35.27 --name hdpmaster --hostname hdpmaster --restart=always -p 9870:9870 -p 50030:50030 -p 8020:8020  msc/namenode
+
+#init namenode
+# format only first execution
+hdfs namenode -format
+hdfs --daemon start namenode
+#check
+jps
+#init datanode
+# format only first execution
+hdfs datanode -format
+hdfs --daemon start datanode
+#check
+jps
 
 
 
