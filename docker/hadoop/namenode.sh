@@ -64,12 +64,12 @@ cat hadoop-env.sh > /opt/hadoop/etc/hadoop/hadoop-env.sh
 echo "datanode-01" > /opt/hadoop/etc/hadoop/workers
 echo "datanode-02" >> /opt/hadoop/etc/hadoop/workers
 #add file to namenode
-wget namenode.xml
+wget https://raw.githubusercontent.com/mindsetcloud/infra-data-engineer/main/docker/hadoop/namenode.xml
 cat namenode.xml > /opt/hadoop/etc/hadoop/hdfs-site.xml
 #commit namenode
 docker commit hdpmaster msc/namenode
 #add file to datanode
-wget datanode.xml
+wget https://raw.githubusercontent.com/mindsetcloud/infra-data-engineer/main/docker/hadoop/datanode.xml
 cat datanode.xml > /opt/hadoop/etc/hadoop/hdfs-site.xml
 #commit datanode
 docker commit hdpmaster msc/datanode
