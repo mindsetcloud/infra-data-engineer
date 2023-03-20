@@ -91,12 +91,3 @@ hdfs datanode -format
 hdfs --daemon start datanode
 #check
 jps
-
-
-
-
-
-
-
-
-
