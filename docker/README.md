@@ -59,3 +59,10 @@ sudo curl -L "https://github.com/docker/compose/releases/download/v2.16.0/docker
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 ```
+
+```sh
+#get id
+docker inspect --format="{{.Id}}" container
+#edit container by id
+vim /var/lib/docker/containers/<ID>
+```
