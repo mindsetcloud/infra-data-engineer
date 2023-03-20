@@ -1,9 +1,9 @@
 #!/bin/bash
 
 #creating a generic container
-docker run -it -d  --hostname namenode --name namenode ubuntu
+docker run -it -d  --hostname hdpmaster --name hdpmaster ubuntu
 #enter on shell the container
-docker exec -it namenode /bin/bash
+docker exec -it hdpmaster /bin/bash
 #update and upgrade container
 apt update 
 apt upgrade
@@ -32,7 +32,15 @@ cat .ssh/id_rsa.pub > .ssh/authorized_keys
 #copiar authorized_keys para as demais do cluster
 #add enviroment on .bashrc
 vim .bashrc
-#hadoop
+#workers users
+export HDFS_NAMENODE_USER=hdfsuser
+export HDFS_DATANODE_USER=hdfsuser
+export HDFS_SECONDARYNAMENODE_USER=hdfsuser
+export YARN_RESOURCEMANAGER_USER=hdfsuser
+export YARN_NODEMANAGER_USER=hdfsuser
+#java_home
+export JAVA_HOME=/lib/jvm/java-8-openjdk-arm64
+#hadoop_home
 export HADOOP_HOME=/opt/hadoop
 export PATH=$PATH:$HADOOP_HOME
 export PATH=$PATH:$HADOOP_HOME/bin
@@ -40,8 +48,32 @@ export PATH=$PATH:$HADOOP_HOME/sbin
 export PATH=$PATH:$JAVA_HOME/bin
 export PATH=$PATH:$HADOOP_HOME/bin
 export PATH=$PATH:$HADOOP_HOME/sbin
-
+#execute source .bashrc
 source .bashrc
+#add routes on /etc/hosts
+echo "192.168.35.27   hdpmaster" >> /etc/hosts
+echo "192.168.35.28   datanode-01" >> /etc/hosts
+echo "192.168.35.29   datanode-02" >> /etc/hosts
+#edit in /opt/hadoop
+wget core-site.xml
+cat core-site.xml > /opt/hadoop/etc/hadoop/core-site.xml
+wget hadoop-env.sh
+cat hadoop-env.sh > /opt/hadoop/etc/hadoop/hadoop-env.sh
+wget hdfs-site.xml
+cat hdfs-site.xml > /opt/hadoop/etc/hadoop/hdfs-site.xml
+echo "datanode-01" > /opt/hadoop/etc/hadoop/workers
+echo "datanode-02" >> /opt/hadoop/etc/hadoop/workers
+#commit container to datanode
+docker commit hdpmaster msc/datanode
+docker run -it -d --net postgres_default --ip 192.168.35.28 --name datanode-01 --hostname datanode-01 --user hdfsuser --restart=always msc/datanode
+docker run -it -d --net postgres_default --ip 192.168.35.29 --name datanode-02 --hostname datanode-02 --user hdfsuser --restart=always msc/datanode
+docker commit hdpmaster msc/namenode
+docker run -it -d --net postgres_default --ip 192.168.35.27 --name hdpmaster --hostname hdpmaster --restart=always -p 9870:9870 -p 50030:50030 -p 8020:8020  msc/namenode
+
+
+
+
+
 
 
 
