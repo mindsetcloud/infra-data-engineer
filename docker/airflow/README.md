@@ -15,8 +15,8 @@
 ### _docker run:_
 
 ```sh
-docker run --user root -it --name airflow --hostname airflow --restart=always \
--v ~/airflow:/root/airflow -p 8080:8080 puckel/docker-airflow webserver
+docker run --user airflow -it --name airflow --hostname airflow --restart=always --net postgres_default --ip 192.168.32.22 \
+-v ~/airflow:/home/airflow/airflow -p 8282:8282 msc/airflow webserver
 ```
 
 
