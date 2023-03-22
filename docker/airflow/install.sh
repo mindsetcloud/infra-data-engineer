@@ -18,6 +18,12 @@ pip install psycopg2-binary
 #edit file airflow.cfg
 sql_alchemy_conn = postgresql://airflow:airflow@localhost/airflow
 
+#create database and database user
+psql -U postgres
+postgres=# CREATE USER airflow PASSWORD 'airflow';
+postgres=# CREATE DATABASE airflow;
+postgres=# GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO airflow;
+
 #init database
 airflow db init
 
