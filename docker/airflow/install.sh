@@ -33,12 +33,7 @@ airflow db init
 # and start all components for you.
 airflow standalone
 
-airflow users create \
-    --username admin \
-    --firstname Peter \
-    --lastname Parker \
-    --role Admin \
-    --email spiderman@superhero.org
+airflow users create --username user --password ********* --firstname user --lastname IT --role Admin --email user@domain
 
 # Visit localhost:8080 in the browser and use the admin account details
 # shown on the terminal to login.
