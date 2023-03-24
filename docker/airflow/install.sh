@@ -33,6 +33,13 @@ airflow db init
 # and start all components for you.
 airflow standalone
 
+airflow users create \
+    --username admin \
+    --firstname Peter \
+    --lastname Parker \
+    --role Admin \
+    --email spiderman@superhero.org
+
 # Visit localhost:8080 in the browser and use the admin account details
 # shown on the terminal to login.
 # Enable the example_bash_operator dag in the home page
