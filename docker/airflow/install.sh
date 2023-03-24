@@ -13,6 +13,7 @@ CONSTRAINT_URL="https://raw.githubusercontent.com/apache/airflow/constraints-${A
 pip install "apache-airflow[postgresql]==${AIRFLOW_VERSION}" --constraint "${CONSTRAINT_URL}"
 
 #install library postgres to connect on sqlalchemy
+pip install psycopg2
 pip install psycopg2-binary
 
 #edit file airflow.cfg
