@@ -20,4 +20,8 @@ sudo ip link add msc-macvlan link eth0 type macvlan mode bridge
 sudo ip addr add 172.27.142.1/24 dev msc-macvlan
 sudo ifconfig msc-macvlan up
 ```
+
+```
+docker network create --driver=bridge --subnet=192.168.32.0/16 --ip-range=192.168.32.0/24 --gateway=192.168.32.1 mindsetcloud-nt
+```
 reference: https://dockerlabs.collabnix.com/beginners/macvlan-010.html
