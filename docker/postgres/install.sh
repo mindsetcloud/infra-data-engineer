@@ -5,6 +5,7 @@ docker run -d \
 	-e POSTGRES_PASSWORD="********" \
 	-e PGDATA=/var/lib/postgresql/data/pgdata \
 	-v /var/lib/postgresql/data:/var/lib/postgresql/data \
-  -net mindsetcloud-net
+  --restart=always
+  --net mindsetcloud-net
   --ip 192.168.32.2
 	mindsetcloud/postgres:arm64
