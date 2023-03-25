@@ -17,8 +17,10 @@ pip install "apache-airflow==${AIRFLOW_VERSION}" --constraint "${CONSTRAINT_URL}
 #install library postgres to connect on sqlalchemy
 pip install psycopg2-binary
 pip install apache-airflow-providers-common-sql
-
+pip install psycopg2
 pip install apache-airflow-providers-postgres
+apt install libpq-dev
+apt install libpq5
 
 #edit file airflow.cfg
 sql_alchemy_conn = postgresql://airflow:airflow@localhost/airflow
