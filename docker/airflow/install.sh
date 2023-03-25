@@ -3,6 +3,7 @@
 # Airflow needs a home. `~/airflow` is the default, but you can put it
 # somewhere else if you prefer (optional)
 export AIRFLOW_HOME=~/airflow
+export PATH=$PATH:/home/airflow/.local/bin
 
 # Install Airflow using the constraints file
 AIRFLOW_VERSION=2.5.1
@@ -40,6 +41,8 @@ airflow db init
 airflow standalone
 
 airflow users create --username user --password ********* --firstname user --lastname IT --role Admin --email user@domain
+
+docker run -it -d --name airflow-server --hostname airflow-server --user airflow --restart=always --net mindsetcloud-nt --ip 192.168.32.4 -v ~/bigdata/data/airflow:/mnt/sources -p 8282:8282 -e AIRFLOW_HOME=/home/airflow/airflow -e TZ=America/Bahia mindsetcloud/airflow-postgres:arm64
 
 # Visit localhost:8080 in the browser and use the admin account details
 # shown on the terminal to login.
