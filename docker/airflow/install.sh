@@ -4,6 +4,7 @@
 # somewhere else if you prefer (optional)
 export AIRFLOW_HOME=~/airflow
 export PATH=$PATH:/home/airflow/.local/bin
+export TZ=America/Bahia
 
 # Install Airflow using the constraints file
 AIRFLOW_VERSION=2.5.1
