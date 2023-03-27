@@ -3,9 +3,9 @@ apt install openjdk-8-jdk
 export PATH=$PATH:/lib/jvm/java-8-openjdk-arm64/bin:/opt/streamsets/bin
 
 
-docker run -it -d name spark-master hostname spark-master --restart=always --net postgres_default --ip 192.168.32.24 ubuntu
-docker run -it -d name spark-worker-01 hostname spark-worker-01 --restart=always --net postgres_default --ip 192.168.32.25 msc/spark-work
-docker run -it -d name spark-worker-02 hostname spark-worker-02  --restart=always --net postgres_default --ip 192.168.32.26 msc/spark-work
+docker run -it -d --name spark-master --hostname spark-master --restart=always --net mindsetcloud-nt --ip 192.168.32.24 -p 8080:8080 -p 4040:4040 mindsetcloud/spark-cluster:arm64
+docker run -it -d name spark-worker-01 hostname spark-worker-01 --restart=always --net mindsetcloud-nt --ip 192.168.32.25 mindsetcloud/spark-cluster:arm64
+docker run -it -d name spark-worker-02 hostname spark-worker-02  --restart=always --net mindsetcloud-nt --ip 192.168.32.26 mindsetcloud/spark-cluster:arm64
 
 
 vim hosts
